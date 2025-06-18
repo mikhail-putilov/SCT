@@ -1,0 +1,20 @@
+management:
+  tracing:
+    enabled: false
+
+spring:
+  liquibase:
+    drop-first: true
+  main:
+    cloud-platform: none
+    web-application-type: servlet
+  application:
+    name: sct
+  datasource:
+    url: jdbc:h2:mem:sct;TIME ZONE=UTC
+    username: sa
+  kafka:
+    bootstrap-servers: localhost:9092
+    consumer:
+      group-id: ${spring.application.name}
+      auto-offset-reset: earliest
